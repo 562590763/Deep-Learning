@@ -1,0 +1,41 @@
+[17:13:28.560] Testing with a single process on CPU.
+[17:13:28.563] 
+Snapshot Path: snapshot/PoolUNet/V0/SynapseDataset/epo150_bs24_lr0.01_224_s42/test.
+[17:13:28.563] *********************************************  Args  *********************************************
+[17:13:28.563] Namespace(aa='rand-m9-mstd0.5-inc1', amp=False, ape=False, apex_amp=False, attn_drop_rate=0.0, attn_ratio=1.0, aug_repeats=0, aug_splits=0, batch_size=24, bce_loss=False, bce_target_thresh=None, bn_eps=None, bn_momentum=None, bn_tf=False, cache_mode='part', channels_last=False, check_interval=5, clip_grad=None, clip_mode='norm', color_jitter=0.4, cooldown_epochs=10, cutmix=0.0, cutmix_minmax=None, d_size=0, data_dir='./data/segmentation/SynapseDataset', dataset='SynapseDataset', debug=False, debug_ratio=40, decay_epochs=100, decay_rate=0.1, deterministic=False, device=device(type='cuda'), dice_loss_weight=0.5, dimension=2, dist_bn='reduce', dist_url='env://', distillation_alpha=0.5, distillation_tau=1.0, distillation_type='none', distributed=False, drop_block=0.0, drop_connect=0.0, drop_path=0.1, drop_rate=0.1, embed_dim=96, epochs=150, eval_metric='top1', finetune_state_dict='./model/PoolUNet/path_state_dict/SynapseDataset_V0.pth', freeze=False, gamma=0.1, gp=None, hflip=0.5, img_size=224, in_dim=2, init_method='env://', initial_checkpoint='snapshot/PoolUNet/V0/SynapseDataset/epo150_bs24_lr0.01_224_s42/test', jsd_loss=False, layer_scale_init_value=1e-05, list_dir='./data/segmentation/SynapseDataset/lists', local_rank=0, log_interval=1, log_wandb=False, lr=0.01, lr_cycle_decay=0.5, lr_cycle_limit=1, lr_cycle_mul=1.0, lr_k_decay=1.0, lr_noise=None, lr_noise_pct=0.67, lr_noise_std=1.0, min_lr=1e-05, mixup=0.0, mixup_mode='batch', mixup_off_epoch=0, mixup_prob=1.0, mixup_switch_prob=0.5, mlp_ratio=4, mode='test', model_dir='./model/PoolUNet', model_ema=False, model_ema_decay=0.9998, model_ema_force_cpu=False, model_index=0, model_type='PoolUNet', momentum=0.9, n_channels=1, n_gpu=1, n_skip=3, native_amp=False, no_aug=False, no_prefetcher=False, no_resume_opt=False, norm_transform=False, num_classes=9, num_workers=1, opt='sgd', opt_betas=None, opt_eps=None, patch_size=16, path_state_dict='', patience_epochs=10, pin_mem=False, pool_size=3, prefetcher=True, pretrain=False, rank=0, ratio=[0.75, 1.3333333333333333], re_num_splits=0, recount=1, remode='pixel', reprob=0.25, resplit=False, resume='', save_interval=20, scale=[0.08, 1.0], sched='cosine', seed=42, self_optimizer=True, self_scheduler=True, self_transform=True, smoothing=0.1, split_bn=False, split_n=0.9, stages=4, sync_bn=False, tag=None, task='segmentation', teacher_model='ViT', teacher_path='', test_batch=False, torchscript=False, train_interpolation='random', train_url=None, transform={'train': Compose(
+    <utils.augment.RandomGenerator object at 0x000001E59EC28E48>
+), 'valid': Compose(
+    ToPILImage()
+    Resize(size=(224, 224), interpolation=bilinear, max_size=None, antialias=None)
+    ToTensor()
+), 'test': None}, tta=0, use_layer_scale=True, use_multi_epochs_loader=False, val_interval=5, version='poolunet_base', vflip=0.0, visual=False, warmup_epochs=5, warmup_lr=1e-06, weight_decay=0.0001, window_size=7, world_size=1, write_interval=50, z_spacing=1, zip=True)
+[17:13:28.689] 
+*******************************************  PoolUNet  *******************************************
+[17:13:29.553] 
+****************************************  SynapseDataset  ****************************************
+[17:13:29.554] The length of the test set is: 12.
+[17:13:29.554] 
+*********************************************  Test  *********************************************
+[17:13:29.554] 12 iterations per epoch, use device:cuda.
+
+[17:17:34.375] Testing:Iteration[001/012]  Time:244.818s  Dice:0.707(0.707)  Hausdorff:115.36(115.36).
+[17:19:56.442] Testing:Iteration[002/012]  Time:142.067s  Dice:0.774(0.741)  Hausdorff:22.74(69.05).
+[17:21:31.965] Testing:Iteration[003/012]  Time:95.523s  Dice:0.737(0.740)  Hausdorff:43.06(60.39).
+[17:24:07.001] Testing:Iteration[004/012]  Time:155.037s  Dice:0.768(0.747)  Hausdorff:15.50(49.16).
+[17:26:31.910] Testing:Iteration[005/012]  Time:144.909s  Dice:0.735(0.744)  Hausdorff:12.53(41.84).
+[17:28:05.889] Testing:Iteration[006/012]  Time:93.979s  Dice:0.746(0.745)  Hausdorff:25.56(39.12).
+[17:29:22.474] Testing:Iteration[007/012]  Time:76.585s  Dice:0.872(0.763)  Hausdorff:17.02(35.97).
+[17:32:47.548] Testing:Iteration[008/012]  Time:205.074s  Dice:0.814(0.769)  Hausdorff:35.40(35.90).
+[17:35:17.314] Testing:Iteration[009/012]  Time:149.766s  Dice:0.816(0.774)  Hausdorff:12.03(33.24).
+[17:37:50.935] Testing:Iteration[010/012]  Time:153.621s  Dice:0.628(0.760)  Hausdorff:14.10(31.33).
+[17:39:12.026] Testing:Iteration[011/012]  Time:81.091s  Dice:0.900(0.772)  Hausdorff: 2.86(28.74).
+[17:40:28.612] Testing:Iteration[012/012]  Time:76.586s  Dice:0.811(0.776)  Hausdorff:42.08(29.85).
+[17:40:29.548] Mean class 1 mean_dice 0.876150 mean_hd95 5.776913.
+[17:40:29.548] Mean class 2 mean_dice 0.592314 mean_hd95 25.190928.
+[17:40:29.549] Mean class 3 mean_dice 0.833649 mean_hd95 58.516732.
+[17:40:29.549] Mean class 4 mean_dice 0.793168 mean_hd95 41.053819.
+[17:40:29.549] Mean class 5 mean_dice 0.937595 mean_hd95 30.004365.
+[17:40:29.549] Mean class 6 mean_dice 0.577273 mean_hd95 15.097414.
+[17:40:29.549] Mean class 7 mean_dice 0.860585 mean_hd95 43.648472.
+[17:40:29.549] Mean class 8 mean_dice 0.735052 mean_hd95 19.537690.
+[17:40:29.549] Testing performance in best val model: mean_dice : 0.775723 mean_hd95 : 29.853292.
