@@ -85,13 +85,10 @@ class ACDCDataset(Dataset):
         split_left = int(split_num * 0.9 * self.split_n)
         split_right = int(split_num * 0.9)
         if self.mode == "train":
-            # 数据量:1540
             self.data_info = self.data_info[:split_left]
         elif self.mode == "valid":
-            # 数据量:171
             self.data_info = self.data_info[split_left:split_right]
         elif self.mode == "test":
-            # 数据量:
             self.data_info = self.data_info[split_right:]
         else:
-            raise Exception("self.mode 无法识别，仅支持(train, valid, test)")
+            raise Exception("self.mode is not recognized, only (train, valid, test) is supported.")
