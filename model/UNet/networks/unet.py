@@ -38,7 +38,6 @@ class Up(nn.Module):
     def __init__(self, in_channels, out_channels, bilinear=True):
         super().__init__()
         if bilinear:
-            # 双线性插值
             self.up = nn.Upsample(
                 scale_factor=2,
                 mode="bilinear",
@@ -46,15 +45,12 @@ class Up(nn.Module):
             )
             self.conv = DoubleConv(in_channels, out_channels, in_channels // 2)
         else:
-            # 反卷积
             self.up = nn.ConvTranspose2d(
                 in_channels, in_channels // 2, kernel_size=(2, 2), stride=(2, 2)
             )
             self.conv = DoubleConv(in_channels, out_channels)
 
     def forward(self, x1, x2):
-        # x1接受上采样数据
-        # x2接受特征融合数据
         x1 = self.up(x1)
         diffY = x2.size()[2] - x1.size()[2]
         diffX = x2.size()[3] - x1.size()[3]
@@ -130,6 +126,5 @@ class UNet(nn.Module):
 
 @register
 def unet_base(args):
-    # 参数:31M FLOPs:41.9G
     model = UNet(args.num_classes, 3, args.train_interpolation == 'bilinear')
     return model
