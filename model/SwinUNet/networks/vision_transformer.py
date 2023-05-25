@@ -5,7 +5,6 @@ from model.SwinUNet.networks.swin_transformer_unet_skip_expand_decoder_sys impor
 
 
 class SwinUnet(nn.Module):
-    # 参数:41.3M FLOPs:8.7G
     def __init__(self, args):
         super(SwinUnet, self).__init__()
         self.args = args
