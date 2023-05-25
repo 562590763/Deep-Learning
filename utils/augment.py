@@ -130,16 +130,16 @@ def mask_to_onehot(mask):
 
 def random_transform2():
     return iaa.SomeOf((0, 4), [
-        iaa.Flipud(0.5, name="Flipud"),  # 50%的概率水平翻转（影响关键点）
-        iaa.Fliplr(0.5, name="Fliplr"),  # 50%的概率垂直翻转（影响关键点）
-        iaa.AdditiveGaussianNoise(scale=0.005 * 255),  # 添加高斯噪声（不影响关键点）
-        iaa.GaussianBlur(sigma=1.0),  # 高斯模糊，使用高斯核的sigma取值范围在（0，3）之间，sigma的随机取值符合均匀分布（不影响关键点）
-        iaa.LinearContrast((0.5, 1.5), per_channel=0.5),  # 增强或削弱图片的对比度（不影响关键点）
-        iaa.Affine(scale={"x": (0.5, 2), "y": (0.5, 2)}),  # 缩放变换（影响关键点）
-        iaa.Affine(rotate=(-40, 40)),  # 旋转（影响关键点）
-        iaa.Affine(shear=(-16, 16)),  # 剪切（影响关键点）
-        iaa.PiecewiseAffine(scale=(0.008, 0.03)),  # 扭曲（影响关键点）
-        iaa.Affine(translate_percent={"x": (-0.2, 0.2), "y": (-0.2, 0.2)})  # 平移变换（影响关键点）
+        iaa.Flipud(0.5, name="Flipud"),
+        iaa.Fliplr(0.5, name="Fliplr"),
+        iaa.AdditiveGaussianNoise(scale=0.005 * 255),
+        iaa.GaussianBlur(sigma=1.0),
+        iaa.LinearContrast((0.5, 1.5), per_channel=0.5),
+        iaa.Affine(scale={"x": (0.5, 2), "y": (0.5, 2)}),
+        iaa.Affine(rotate=(-40, 40)),
+        iaa.Affine(shear=(-16, 16)),
+        iaa.PiecewiseAffine(scale=(0.008, 0.03)),
+        iaa.Affine(translate_percent={"x": (-0.2, 0.2), "y": (-0.2, 0.2)})
     ], random_order=True)
 
 
