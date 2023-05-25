@@ -47,7 +47,7 @@ sys.path.append(BASE_DIR)
 
 def get_model(args):
     """
-    创建模型，加载参数
+    Create models and load parameters
     :param args:
     :return:
     """
@@ -57,7 +57,7 @@ def get_model(args):
         print("---start load pretrained model of {}---".format(args.model_type))
     elif args.mode == 'test':
         if not os.path.exists(args.finetune_state_dict):
-            raise NotImplementedError("{}模型未进行微调.".format(args.model_type))
+            raise NotImplementedError("{} model is not finetune.".format(args.model_type))
         else:
             print("finetune_path:{}".format(args.finetune_state_dict))
     if args.model_type == 'AlexNet':
@@ -112,7 +112,7 @@ def get_model(args):
         model = get_models(args.version)(args)
         if args.mode == 'train' and args.pretrain:
             if not os.path.exists(args.path_state_dict):
-                raise NotImplementedError("{}模型未预训练.".format(args.model_type))
+                raise NotImplementedError("{} model is not pretrained.".format(args.model_type))
             checkpoint = torch.load(args.path_state_dict, map_location="cpu")
             model.load_state_dict(checkpoint)
         if args.num_classes != 1000:
@@ -123,10 +123,10 @@ def get_model(args):
             best_state_dict = torch.load(args.finetune_state_dict, map_location="cpu")
             model.load_state_dict(best_state_dict)
     else:
-        raise NotImplementedError("未导入{}模型".format(args.model_type))
+        raise NotImplementedError("The {} model is not imported".format(args.model_type))
 
     if args.debug and args.visual:
-        # 训练时不能开启，否则会影响模型参数导入
+        # It cannot be turned on during training, otherwise the model parameter import will be affected.
         if args.in_dim == 2:
             inputs = torch.randn(1, args.n_channels, args.img_size, args.img_size)
         else:
