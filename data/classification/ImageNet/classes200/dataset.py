@@ -51,7 +51,6 @@ class ImageNet200(Dataset):
             label_dir = label_dirs[label]
             self.label_map[label_dir] = label
         if self.mode == "train":
-            # 数据量:100000
             img_names = []
             img_labels = []
             for label in range(len(label_dirs)):
@@ -63,7 +62,6 @@ class ImageNet200(Dataset):
                 img_names.extend(img_names_local)
                 img_labels.extend(img_labels_local)
         elif self.mode == "valid":
-            # 数据量:10000
             img_names = os.listdir(self.data_dir[:-5] + 'valid/images')
             img_names = list(filter(lambda x: x.endswith('.JPEG'), img_names))
             img_names = [self.data_dir[:-5] + 'valid/images/' + x for x in img_names]
@@ -72,13 +70,12 @@ class ImageNet200(Dataset):
                 data = f.readlines()
                 img_labels = [self.label_map[line.split()[1]] for line in data]
         elif self.mode == "test":
-            # 数据量:10000
             img_names = os.listdir(self.data_dir + '/images')
             img_names = list(filter(lambda x: x.endswith('.JPEG'), img_names))
             img_names = [self.data_dir + '/images/' + x for x in img_names]
             img_labels = [0 for _ in range(len(img_names))]
         else:
-            raise Exception("self.mode 无法识别，仅支持(train, valid, test)")
+            raise Exception("self.mode is not recognized, only (train, valid, test) is supported.")
 
         data_info = [(n, l) for n, l in zip(img_names, img_labels)]
         random.seed(self.seed)
