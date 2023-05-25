@@ -57,7 +57,7 @@ def get_model(args):
         print("---start load pretrained model of {}---".format(args.model_type))
     elif args.mode == 'test':
         if not os.path.exists(args.finetune_state_dict):
-            raise NotImplementedError("{} model is not finetune.".format(args.model_type))
+            raise NotImplementedError("{} model is not finetuned.".format(args.model_type))
         else:
             print("finetune_path:{}".format(args.finetune_state_dict))
     if args.model_type == 'AlexNet':
