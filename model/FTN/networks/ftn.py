@@ -226,7 +226,6 @@ class FTN(nn.Module):
 
 @register
 def FTN_4(args):  # adopt performer for tokens to token
-    # 参数:5.0M FLOPs:1.6G
     model = FTN(img_size=args.img_size, embed_dim=256, depth=4, num_heads=2, mlp_ratio=2., token_dim=64,
                 drop_rate=args.drop_rate, attn_drop_rate=args.attn_drop_rate, drop_path_rate=args.drop_path)
     model.default_cfg = default_cfgs['FTN_4']
@@ -235,7 +234,6 @@ def FTN_4(args):  # adopt performer for tokens to token
 
 @register
 def FTN_8(args):  # adopt performer for tokens to token
-    # 参数:20.7M FLOPs:4.7G
     model = FTN(img_size=args.img_size, embed_dim=384, depth=8, num_heads=3, mlp_ratio=2., token_dim=64,
                 drop_rate=args.drop_rate, attn_drop_rate=args.attn_drop_rate, drop_path_rate=args.drop_path)
     model.default_cfg = default_cfgs['FTN_8']
@@ -244,7 +242,6 @@ def FTN_8(args):  # adopt performer for tokens to token
 
 @register
 def FTN_12(args):  # adopt performer for tokens to token
-    # 参数:54.2M FLOPs:11.3G
     model = FTN(img_size=args.img_size, embed_dim=512, depth=12, num_heads=4, mlp_ratio=2., token_dim=64,
                 drop_rate=args.drop_rate, attn_drop_rate=args.attn_drop_rate, drop_path_rate=args.drop_path)
     model.default_cfg = default_cfgs['FTN_12']
