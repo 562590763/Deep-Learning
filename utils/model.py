@@ -56,7 +56,7 @@ def get_model(args):
         print("---start load pretrained model of {}---".format(args.model_type))
     elif args.mode == 'test':
         if not os.path.exists(args.finetune_state_dict):
-            raise NotImplementedError("{} model is not finetuned.".format(args.model_type))
+            raise NotImplementedError("{} is not finetuned.".format(args.model_type))
         else:
             print("finetune_path:{}".format(args.finetune_state_dict))
     if args.model_type == 'AlexNet':
@@ -111,7 +111,7 @@ def get_model(args):
         model = get_models(args.version)(args)
         if args.mode == 'train' and args.pretrain:
             if not os.path.exists(args.path_state_dict):
-                raise NotImplementedError("{} model is not pretrained.".format(args.model_type))
+                raise NotImplementedError("{} is not pretrained.".format(args.model_type))
             checkpoint = torch.load(args.path_state_dict, map_location="cpu")
             model.load_state_dict(checkpoint)
         if args.num_classes != 1000:
@@ -122,7 +122,7 @@ def get_model(args):
             best_state_dict = torch.load(args.finetune_state_dict, map_location="cpu")
             model.load_state_dict(best_state_dict)
     else:
-        raise NotImplementedError("The {} model is not imported".format(args.model_type))
+        raise NotImplementedError("{} is not imported".format(args.model_type))
 
     if args.debug and args.visual:
         # It cannot be turned on during training, otherwise the model parameter import will be affected.
