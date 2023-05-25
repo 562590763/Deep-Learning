@@ -168,6 +168,5 @@ class AttentionUNet(nn.Module):
 
 @register
 def attention_unet_base(args):
-    # 参数:34.9M FLOPs:51.0G
     model = AttentionUNet(args.num_classes, 3)
     return model
