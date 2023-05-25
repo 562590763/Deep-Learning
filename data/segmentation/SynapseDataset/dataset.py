@@ -96,13 +96,10 @@ class SynapseDataset(Dataset):
             self.sample_list = self.sample_list[:len(self.sample_list) // self.debug_ratio]
         split_idx = int(len(self.sample_list) * self.split_n)
         if self.mode == "train":
-            # 数据量:1989
             self.sample_list = self.sample_list[:split_idx]
         elif self.mode == "valid":
-            # 数据量:222
             self.sample_list = self.sample_list[split_idx:]
         elif self.mode == "test":
-            # 数据量:12
             pass
         else:
-            raise Exception("self.mode 无法识别，仅支持(train, valid, test)")
+            raise Exception("self.mode is not recognized, only (train, valid, test) is supported.")
