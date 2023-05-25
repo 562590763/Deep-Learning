@@ -27,7 +27,7 @@ if __name__ == "__main__":
         else:
             exec("args.{}='{}'".format(key, value))
 
-    # TODO(FFX) 修改设置
+    # TODO
     args.debug = False
     args.mode = 'test'
     args.num_workers = 1
@@ -38,11 +38,9 @@ if __name__ == "__main__":
         args.batch_size = 1
 
     snapshot_path = get_snapshot_path(args)
-    snapshot_path = 'snapshot/PoolUNet/V0/SynapseDataset/epo150_bs24_lr0.01_224_s42/test'
     args.initial_checkpoint = snapshot_path
-    # args.finetune_state_dict = './model/{}/path_state_dict/{}_V{}.pth'.format(
-    #     args.model_type, args.dataset, args.model_index)
-    args.finetune_state_dict = './model/PoolUNet/path_state_dict/SynapseDataset_V0.pth'
+    args.finetune_state_dict = './model/{}/path_state_dict/{}_V{}.pth'.format(
+        args.model_type, args.dataset, args.model_index)
     if not os.path.exists(snapshot_path):
         os.makedirs(snapshot_path)
 
