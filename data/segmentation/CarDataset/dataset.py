@@ -70,14 +70,12 @@ class CarDataset(Dataset):
             img_names = img_names[:len(img_names) // self.debug_ratio]
         split_idx = int(len(img_names) * self.split_n)
         if self.mode == "train":
-            # 数据量:57
             img_names = img_names[:split_idx]
         elif self.mode == "valid":
-            # 数据量:7
             img_names = img_names[split_idx:]
         elif self.mode == "test":
             pass
         else:
-            raise Exception("self.mode 无法识别，仅支持(train, valid, test)")
+            raise Exception("self.mode is not recognized, only (train, valid, test) is supported.")
 
         return img_names
