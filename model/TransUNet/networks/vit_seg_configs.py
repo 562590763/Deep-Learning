@@ -43,7 +43,6 @@ def get_testing():
 
 def get_r50_b16_config():
     """Returns the Resnet50 + ViT-B/16 configuration."""
-    # 参数:93.2M FLOPs:24.7G
     config = get_b16_config()
     config.patches.grid = (16, 16)
     config.resnet = ml_collections.ConfigDict()
@@ -94,7 +93,6 @@ def get_l16_config():
 
 def get_r50_l16_config():
     """Returns the Resnet50 + ViT-L/16 configuration. customized """
-    # 参数:311.9M FLOPs:67.6G
     config = get_l16_config()
     config.patches.grid = (16, 16)
     config.resnet = ml_collections.ConfigDict()
