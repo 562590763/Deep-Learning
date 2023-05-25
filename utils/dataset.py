@@ -27,4 +27,4 @@ def getdata(dataset, data_dir, list_dir="", debug=True, debug_ratio=1, mode="tra
                                     norm_transform=norm_transform, transform=transform,
                                     debug=debug, debug_ratio=debug_ratio, seed=seed)
     else:
-        raise Exception("未导入{}数据集".format(dataset))
+        raise Exception("The {} dataset was not imported.".format(dataset))
