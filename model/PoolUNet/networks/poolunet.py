@@ -322,8 +322,6 @@ class PoolUNet(nn.Module):
 
 @register
 def poolunet_base(args):
-    # 参数:46.0M FLOPs:15.4G(not deformable)
-    # 参数:46.2M FLOPs:15.7G(deformable)
     depths = [2, 4, 6, 8]
     decoder_channels = [256, 128, 64, 16]
     skip_channels = [512, 256, 64, 16]
@@ -343,8 +341,6 @@ def poolunet_base(args):
 
 @register
 def poolunet_large(args):
-    # 参数:144.0M FLOPs:34.7G(not deformable)
-    # 参数:144.2M FLOPs:34.9G(deformable)
     depths = [3, 4, 9, 16]
     decoder_channels = [256, 128, 64, 16]
     skip_channels = [512, 256, 64, 16]
