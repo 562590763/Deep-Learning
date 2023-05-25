@@ -230,21 +230,6 @@ def get_config():
             'dice_loss_weight': 0.6,
             'version': ['daeformer_base']
         },
-        'CntUNet': {
-            'model_dir': './model/CntUNet',
-            'pool_size': 3,
-            'epochs': [150, 200, 200, 300],
-            'batch_size': [48, 48, 24, 24],
-            'num_workers': 8,
-            'self_optimizer': True,
-            'opt': 'sgd',
-            'self_scheduler': True,
-            'lr': [0.01, 0.005, 0.01, 0.01],
-            'img_size': 224,
-            'n_skip': 3,
-            'patch_size': 4,
-            'version': ['cntunet_tiny', 'cntunet_small', 'cntunet_medium', 'cntunet_large']
-        },
     }
 
     dataset_config = {
