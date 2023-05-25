@@ -51,7 +51,7 @@ if __name__ == "__main__":
         else:
             exec("args.{}='{}'".format(key, value))
 
-    # TODO(FFX) 修改设置
+    # TODO
     args.debug = True
     args.num_workers = 1
     if args.debug:
