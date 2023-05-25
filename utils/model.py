@@ -15,7 +15,6 @@ from model.TNT.networks.tnt import *
 from model.TNT.networks.pyramid_tnt import *
 from model.PoolFormer.networks.poolformer import *
 from model.AttentionUNet.networks.attention_unet import *
-from model.CntUNet.networks.cntunet import *
 from model.PoolUNet.networks.poolunet import *
 from model.DAEFormer.networks.daeformer import *
 from model.MISSFormer.networks.missformer import *
