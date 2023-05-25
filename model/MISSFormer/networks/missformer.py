@@ -410,7 +410,6 @@ class MISSFormer(nn.Module):
 
 @register
 def missformer_base(args):
-    # 参数:34.9M FLOPs:7.3G
     heads = [1, 2, 5, 8]
     in_out_chan = [[32, 64], [144, 128], [288, 320], [512, 512]]
     dims = [64, 128, 320, 512]
