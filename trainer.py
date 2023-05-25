@@ -127,9 +127,8 @@ def classification_trainer(args, snapshot_path):
     train_loss_fn, validate_loss_fn = train_loss_fn.to(device), validate_loss_fn.to(device)
 
     # ================================= step 4/5 Optimizer ===============================
-    # 冻结卷积层
     if args.freeze:
-        fc_params_id = list(map(id, model.classifier.parameters()))  # 返回的是parameters的内存地址
+        fc_params_id = list(map(id, model.classifier.parameters()))
         base_params = filter(lambda p: id(p) not in fc_params_id, model.parameters())
         optimizer = optim.SGD([
             {'params': base_params, 'lr': lr * 0.1},  # 0
@@ -190,7 +189,6 @@ def classification_trainer(args, snapshot_path):
                 for param_group in optimizer.param_groups:
                     param_group['lr'] = lr_
 
-            # 统计分类情况
             _, predicted = torch.max(outputs.data, 1)
             local_samples += label_batch.size(0)
             local_loss += loss.item()
@@ -342,9 +340,8 @@ def segmentation_trainer(args, snapshot_path):
         log("Use CrossEntropyLoss and DiceLoss for training and validation.", has_checkpoint)
 
     # ================================= step 4/5 Optimizer ===============================
-    # 冻结卷积层
     if args.freeze:
-        fc_params_id = list(map(id, model.classifier.parameters()))  # 返回的是parameters的内存地址
+        fc_params_id = list(map(id, model.classifier.parameters()))
         base_params = filter(lambda p: id(p) not in fc_params_id, model.parameters())
         optimizer = optim.SGD([
             {'params': base_params, 'lr': lr * 0.1},  # 0
@@ -409,7 +406,6 @@ def segmentation_trainer(args, snapshot_path):
                 for param_group in optimizer.param_groups:
                     param_group['lr'] = lr_
 
-            # 统计分割情况
             local_loss_part += loss_part.item()
             local_loss_dice += loss_dice.item()
             local_loss += loss.item()
