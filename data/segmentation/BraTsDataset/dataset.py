@@ -82,13 +82,10 @@ class BraTsDataset(Dataset):
             self.data_info = self.data_info[:len(self.data_info) // self.debug_ratio]
         split_idx = int(len(self.data_info) * self.split_n)
         if self.mode == "train":
-            # 数据量:301
             self.data_info = self.data_info[:split_idx]
         elif self.mode == "valid":
-            # 数据量:34
             self.data_info = self.data_info[split_idx:]
         elif self.mode == "test":
-            # 数据量:125
             pass
         else:
-            raise Exception("self.mode 无法识别，仅支持(train, valid, test)")
+            raise Exception("self.mode is not recognized, only (train, valid, test) is supported.")
