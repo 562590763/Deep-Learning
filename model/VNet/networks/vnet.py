@@ -203,6 +203,5 @@ class VNet(nn.Module):
 
 @register
 def vnet_base(args):
-    # 参数:45.6M FLOPs:379.39G
     model = VNet(args.num_classes)
     return model
