@@ -472,7 +472,6 @@ class DAEFormer(nn.Module):
 
 @register
 def daeformer_base(args):
-    # 参数:29.7M FLOPs:26.2M
     in_out_chan = [
         [64, 128, 128, 128, 160],
         [320, 320, 320, 320, 256],
